@@ -71,6 +71,7 @@
     
     _bridge = [WebViewJavascriptBridge bridgeUserNJKForWebView:self.webView handlerName:@"testObjcCallback" handler:^(id data, WVJBResponseCallback responseCallback) {
         
+#warning block里必须使用weakSelf，否则会造成循环引用
         NSLog(@"ObjC received message from JS: %@", data);
     }];
     
